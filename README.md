@@ -57,9 +57,9 @@ Before you start, ensure the following:
    gsutil cp D:\data engineer resources\Spark-Job\emr-cluster-GCP\datasets\mypysparkscript.py gs://data-source-2025-jan/scripts/mypysparkscript.py
    ```
 
-![]()
+![Cloud Bucket](https://raw.githubusercontent.com/chaithanyakasi27/Pyspark-Job-Submission-on-GCP-using-Dataproc/refs/heads/main/images/Cloud%20Storage%20bucket.jpg)
 
-
+*Figure: Cloud Bucket*
 
 ## 4. Create a Dataproc Cluster
 1. **Create the Dataproc Cluster**:  
@@ -68,9 +68,10 @@ Before you start, ensure the following:
    gcloud dataproc clusters create my-dataproc-cluster-2  --region=us-central1 --zone=us-central1-b --single-node  --image-version=2.0-debian10 --project=inductive-vista-453815-q1 --scopes="cloud-platform" 
    ```
 
-   ![]()
+   ![Dataproc Cluster](https://raw.githubusercontent.com/chaithanyakasi27/Pyspark-Job-Submission-on-GCP-using-Dataproc/refs/heads/main/images/Dataproc%20cluster.jpg)
+   *Figure: Dataproc Cluster*
 
-2. **Get the Cluster Information**:  
+3. **Get the Cluster Information**:  
    After cluster creation, note the cluster name for job submission.
 
 ---
@@ -81,8 +82,10 @@ Before you start, ensure the following:
    ```bash
    gcloud dataproc jobs submit pyspark gs://spark-job-data-bucket/scripts/mypysparkscript_aggregatebykey.py  --cluster=my-dataproc-cluster-2 --region=us-central1 --id=Spark_groupby_job
    ```
+![JOBS](https://raw.githubusercontent.com/chaithanyakasi27/Pyspark-Job-Submission-on-GCP-using-Dataproc/refs/heads/main/images/jobss.jpg)
+*Figure: JOBS*
 
-   This command will submit your PySpark script to the Dataproc cluster, where it will process the input file (`Financial.csv`) from GCS and write output to the specified GCS path.
+This command will submit your PySpark script to the Dataproc cluster, where it will process the input file (`Financial.csv`) from GCS and write output to the specified GCS path.
 
 ---
 
